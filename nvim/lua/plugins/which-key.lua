@@ -1,0 +1,25 @@
+return {
+  "folke/which-key.nvim",
+  opts = {
+    defaults = {
+      mode = { "n", "v" },
+      ["g"] = { name = "+goto" },
+      ["gs"] = { name = "+surround" },
+      ["]"] = { name = "+next" },
+      ["["] = { name = "+prev" },
+      ["<leader><tab>"] = { name = "+tabs" },
+      ["<leader>b"] = { name = "+buffer" },
+      ["<leader>c"] = { name = "+code" },
+      ["<leader>ct"] = { name = "+typescript" },
+      ["<leader>f"] = { name = "+file/find" },
+      ["<leader>g"] = { name = "+git" },
+      ["<leader>gh"] = { name = "+hunks" },
+      ["<leader>gd"] = { name = "+diffview" },
+      ["<leader>q"] = { name = "+quit/session" },
+      ["<leader>s"] = { name = "+search" },
+      ["<leader>u"] = { name = "+ui" },
+      ["<leader>w"] = { name = "+windows" },
+      ["<leader>x"] = { name = "+diagnostics/quickfix" },
+    },
+  },
+}
