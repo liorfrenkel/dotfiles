@@ -16,3 +16,4 @@ alias lg="lazygit"
 
 # This should stay at the end
 eval "$(zoxide init zsh)"
+eval "$(atuin init zsh)"
