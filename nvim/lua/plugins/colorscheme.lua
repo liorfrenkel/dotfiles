@@ -1,9 +1,4 @@
 return {
-  -- add gruvbox
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   -- opts = { style = "storm" },
-  -- },
   {
     "catppuccin/nvim",
     name = "catppuccin",
