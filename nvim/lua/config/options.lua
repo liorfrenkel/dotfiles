@@ -7,3 +7,4 @@ vim.opt.spelloptions = "camel"
 vim.opt.spellcapcheck = ""
 vim.o.autowriteall = true
 vim.g.autoformat = false
+vim.g.snacks_animate = false
