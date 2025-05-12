@@ -41,3 +41,29 @@ end, { desc = 'Quit all (no force)' })
 
 vim.keymap.set('n', '<leader>`', '<cmd>b#<cr>', { desc = 'Last buffer' })
 
+function ToggleTestOnly()
+	local line = vim.api.nvim_get_current_line() -- Get current line
+	if line:match("%.only") then
+		-- If the line contains '.only', remove it
+		line = line:gsub("%.only", "")
+	else
+		-- Otherwise, insert '.only' after 'it' or 'test' or 'describe'
+		line = line:gsub("^(%s*it)", "%1.only")
+		line = line:gsub("^(%s*test)", "%1.only")
+		line = line:gsub("^(%s*describe)", "%1.only")
+	end
+	vim.api.nvim_set_current_line(line) -- Set the modified line
+end
+
+function ToggleBoolean()
+	local line = vim.api.nvim_get_current_line() -- Get current line
+	if line:match("false") then
+		line = line:gsub("false", "true", 1)
+	elseif line:match("true") then
+		line = line:gsub("true", "false", 1)
+	end
+	vim.api.nvim_set_current_line(line) -- Set the modified line
+end
+
+vim.keymap.set("n", "<leader>to", ":lua ToggleTestOnly()<CR>", { desc = "toggle .only in test" })
+vim.keymap.set("n", "<leader>tb", ":lua ToggleBoolean()<CR>", { desc = "toggle next boolean" })
