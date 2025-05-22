@@ -20,4 +20,12 @@ return {
     'rose-pine/neovim',
     name = 'rose-pine',
   },
+  {
+    'rebelot/kanagawa.nvim',
+    name = 'kanagawa',
+  },
+  {
+    'EdenEast/nightfox.nvim',
+    name = 'nightfox',
+  },
 }
