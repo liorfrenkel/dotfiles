@@ -1,6 +1,8 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.o.termguicolors = true
+
 vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
