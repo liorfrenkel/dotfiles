@@ -39,6 +39,17 @@ end, { desc = 'Quit all (no force)' })
 -- end, { desc = 'LSP Code Action' })
 -- vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action', mode = 'v' })
 
+
+-- format the whole buffer using eslint
+vim.keymap.set('n', '<leader>ce', function()
+  -- Save current cursor position with mark F
+  vim.cmd("mark F")
+  -- Run eslint_d on the whole buffer and replace it with the output
+  vim.cmd(":%!eslint_d --stdin --fix-to-stdout --stdin-filename " .. vim.fn.expand("%"))
+  -- Jump back to mark F
+  vim.cmd("normal! `F")
+end, { desc = "Eslint autofix whole buffer" })
+
 vim.keymap.set('n', '<leader>`', '<cmd>b#<cr>', { desc = 'Last buffer' })
 
 function ToggleTestOnly()
