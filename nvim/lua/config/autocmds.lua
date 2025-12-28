@@ -13,9 +13,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Enable spell checking for identifiers in all file types
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = '*',
-  callback = function()
-    vim.cmd [[syntax match IdentifierSpell "\v\w+" contains=@Spell]]
-  end,
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = '*',
+--   callback = function()
+--     vim.cmd [[syntax match IdentifierSpell "\v\w+" contains=@Spell]]
+--   end,
+-- })

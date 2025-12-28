@@ -45,7 +45,7 @@ return {
           -- In this case, we create a function that lets us more easily define mappings specific
           -- for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc, mode)
-            mode = mode or 'n'
+            mode = mode or { 'n' }
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
@@ -56,6 +56,7 @@ return {
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+          map('<leader>cA', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
@@ -297,7 +298,10 @@ return {
         'prettierd',
         'prettier',
         'eslint_d',
-        'typos',
+        'css-lsp',
+        'eslint-lsp',
+        'html-lsp',
+        'json-lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -315,6 +319,15 @@ return {
           end,
         },
       }
+    end,
+  },
+  {
+    'yioneko/nvim-vtsls',
+    dependencies = { 'neovim/nvim-lspconfig' },
+    config = function()
+      -- optional, but recommended to register default vtsls config
+      require('lspconfig.configs').vtsls = require('vtsls').lspconfig
+      require('lspconfig').vtsls.setup {}
     end,
   },
 }

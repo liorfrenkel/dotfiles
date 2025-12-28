@@ -76,5 +76,5 @@ function ToggleBoolean()
 	vim.api.nvim_set_current_line(line) -- Set the modified line
 end
 
-vim.keymap.set("n", "<leader>to", ":lua ToggleTestOnly()<CR>", { desc = "toggle .only in test" })
-vim.keymap.set("n", "<leader>tb", ":lua ToggleBoolean()<CR>", { desc = "toggle next boolean" })
+vim.keymap.set("n", "<leader>cto", ":lua ToggleTestOnly()<CR>", { desc = "toggle .only in test" })
+vim.keymap.set("n", "<leader>ctb", ":lua ToggleBoolean()<CR>", { desc = "toggle next boolean" })

@@ -24,12 +24,12 @@ vim.opt.swapfile = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-
 -- spell
-vim.opt.spelllang = "en_us"
+vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
-vim.opt.spelloptions = "camel"
-vim.opt.spellcapcheck = ""
+vim.opt.spelloptions = 'camel'
+vim.opt.spellcapcheck = ''
+vim.o.autowriteall = true
 
 -- indentation
 -- Convert tabs to spaces

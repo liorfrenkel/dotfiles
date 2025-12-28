@@ -17,10 +17,10 @@ return {
       spec = {
         { '<leader>s', group = '[S]earch' },
         { '<leader>f', group = '[F]ind' },
-        { '<leader>t', group = '[T]oggle' },
         { '<leader>u', group = '[U]i' },
         { '<leader>ub', group = '[B]ackground' },
         { '<leader>c', group = '[C]ode' },
+        { '<leader>ct', group = '[T]oggle' },
         { '<leader>x', group = 'Diagnostics' },
         -- Lior: this is not working
         -- { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },

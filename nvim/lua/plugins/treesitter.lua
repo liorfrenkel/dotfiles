@@ -36,4 +36,17 @@ return {
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    opts = {
+      enable = true, -- Enable this plugin
+      max_lines = 0, -- How many lines the window should span. 0 = no limit
+      trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+      min_window_height = 0, -- Minimum editor window height to enable context. 0 = no limit
+      multiline_threshold = 20, -- Maximum number of lines to show for a single context
+      mode = 'cursor', -- Line used to calculate context. Choices: 'cursor', 'topline'
+      separator = nil, -- Separator between context and content. e.g. '─'
+      zindex = 20, -- The Z-index of the context window
+    },
+  },
 }
