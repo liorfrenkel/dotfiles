@@ -1,19 +1,31 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    'catppuccin/nvim',
+    name = 'catppuccin',
     priority = 1000,
-    opts = {
-      background = { -- :h background
-        light = "latte",
-        dark = "frappe",
-      },
-    },
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require('catppuccin').setup {
+        flavour = 'auto', -- latte, frappe, macchiato, mocha
+        background = { -- :h background
+          light = 'latte',
+          dark = 'frappe',
+        },
+      }
+
+      vim.cmd.colorscheme 'catppuccin'
+    end,
   },
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin-frappe",
-    },
+    'rose-pine/neovim',
+    name = 'rose-pine',
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    name = 'kanagawa',
+  },
+  {
+    'EdenEast/nightfox.nvim',
+    name = 'nightfox',
   },
 }

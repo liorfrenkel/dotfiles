@@ -1,7 +1,9 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.g.have_nerd_font = true
+
 if vim.g.vscode then
-  require("vscode-config")
+  require 'vscode-config'
 else
-  -- bootstrap lazy.nvim, LazyVim and your plugins
-  require("config.lazy")
-  require("config.commands")
+  require 'config'
 end

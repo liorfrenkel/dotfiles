@@ -1,16 +1,56 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<leader>ubd", "<cmd>set background=dark<cr>")
-vim.keymap.set("n", "<leader>ubl", "<cmd>set background=light<cr>")
-vim.keymap.set("n", "<leader>gdd", "<cmd>DiffviewOpen<cr>")
-vim.keymap.set("n", "<leader>gdc", "<cmd>DiffviewClose<cr>")
-vim.keymap.set("n", "<leader>ctr", "<cmd>TSToolsRenameFile<cr>", { desc = "typescript rename file" })
-vim.keymap.set("n", "<leader>cto", "<cmd>TSToolsOrganizeImports<cr>", { desc = "typescript organize imports" })
-vim.keymap.set("n", "<leader>cta", "<cmd>TSToolsAddMissingImports<cr>", { desc = "typescript add missing imports" })
+-- Diagnostic keymaps
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
+-- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
+-- is not what someone will guess without a bit more experience.
+--
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
+-- or just use <C-\><C-n> to exit terminal mode
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Keybinds to make split navigation easier.
+--  Use CTRL+<hjkl> to switch between windows
+--
+--  See `:help wincmd` for a list of all window commands
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- Switch light and dark mode
+vim.keymap.set('n', '<leader>ubd', '<cmd>set background=dark<cr>', { desc = 'Dark' })
+vim.keymap.set('n', '<leader>ubl', '<cmd>set background=light<cr>', { desc = 'Light' })
+
+vim.keymap.set('n', '<leader>qq', function()
+  vim.cmd.qall()
+end, { desc = 'Quit all (no force)' })
+
+-- code actions
+-- vim.keymap.set('n', '<leader>ca', function()
+--   vim.lsp.buf.code_action()
+-- end, { desc = 'LSP Code Action' })
+-- vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action', mode = 'v' })
+
+
+-- format the whole buffer using eslint
+vim.keymap.set('n', '<leader>ce', function()
+  -- Save current cursor position with mark F
+  vim.cmd("mark F")
+  -- Run eslint_d on the whole buffer and replace it with the output
+  vim.cmd(":%!eslint_d --stdin --fix-to-stdout --stdin-filename " .. vim.fn.expand("%"))
+  -- Jump back to mark F
+  vim.cmd("normal! `F")
+end, { desc = "Eslint autofix whole buffer" })
+
+vim.keymap.set('n', '<leader>`', '<cmd>b#<cr>', { desc = 'Last buffer' })
 
 function ToggleTestOnly()
 	local line = vim.api.nvim_get_current_line() -- Get current line
@@ -36,5 +76,5 @@ function ToggleBoolean()
 	vim.api.nvim_set_current_line(line) -- Set the modified line
 end
 
-vim.keymap.set("n", "<leader>to", ":lua ToggleTestOnly()<CR>", { desc = "toggle .only in test" })
-vim.keymap.set("n", "<leader>tb", ":lua ToggleBoolean()<CR>", { desc = "toggle next boolean" })
+vim.keymap.set("n", "<leader>cto", ":lua ToggleTestOnly()<CR>", { desc = "toggle .only in test" })
+vim.keymap.set("n", "<leader>ctb", ":lua ToggleBoolean()<CR>", { desc = "toggle next boolean" })
