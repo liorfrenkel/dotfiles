@@ -1,3 +1,4 @@
 nvim/spell/*.add.spl
 kitty.conf.bak
 .zsh_history
+nvim/lazy-lock.json
