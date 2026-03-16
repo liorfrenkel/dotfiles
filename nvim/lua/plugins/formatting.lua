@@ -1,4 +1,4 @@
-local jsTable = { 'prettierd', 'prettier', stop_after_first = true }
+local jsTable = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true }
 
 return {
   { -- Autoformat
