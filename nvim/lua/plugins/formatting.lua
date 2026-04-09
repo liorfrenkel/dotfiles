@@ -1,4 +1,25 @@
-local jsTable = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true }
+local prettier_configs = {
+  '.prettierrc',
+  '.prettierrc.json',
+  '.prettierrc.yml',
+  '.prettierrc.yaml',
+  '.prettierrc.json5',
+  '.prettierrc.js',
+  '.prettierrc.cjs',
+  '.prettierrc.mjs',
+  '.prettierrc.toml',
+  'prettier.config.js',
+  'prettier.config.cjs',
+  'prettier.config.mjs',
+}
+
+local function jsFormatter(bufnr)
+  local bufname = vim.api.nvim_buf_get_name(bufnr)
+  if vim.fs.root(bufname, prettier_configs) then
+    return { 'prettierd', 'prettier', stop_after_first = true }
+  end
+  return { 'oxfmt' }
+end
 
 return {
   { -- Autoformat
@@ -37,9 +58,9 @@ return {
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        javascript = jsTable,
-        typescript = jsTable,
-        typescriptreact = jsTable,
+        javascript = jsFormatter,
+        typescript = jsFormatter,
+        typescriptreact = jsFormatter,
       },
     },
   },
