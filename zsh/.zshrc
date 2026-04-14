@@ -18,6 +18,10 @@ alias nvimk="NVIM_APPNAME="nvim-kickstart" nvim"
 alias lg="lazygit"
 
 # Kitty helpers
+tt() {
+  kitten @ set-tab-title "$(basename $PWD)"
+}
+
 dev() {
   kitten @ set-tab-title "$(basename $PWD)"
   kitten @ launch --type=window --cwd="$PWD" --hold $(command -v claude) 
