@@ -17,6 +17,29 @@ alias v="nvim"
 alias nvimk="NVIM_APPNAME="nvim-kickstart" nvim"
 alias lg="lazygit"
 
+# Kitty helpers
+dev() {
+  kitten @ set-tab-title "$(basename $PWD)"
+  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v claude) 
+  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit) 
+  nvim
+}
+
+devc() {
+  kitten @ set-tab-title "$(basename $PWD)"
+  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v claude) 
+  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit) 
+  nvim
+}
+
+wdevc() {
+  wt switch --create "$1"
+  kitten @ set-tab-title "$(basename $PWD)"
+  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v claude) 
+  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit) 
+  nvim
+}
+
 # This should stay at the end
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
