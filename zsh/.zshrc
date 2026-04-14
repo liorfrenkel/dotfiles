@@ -24,7 +24,7 @@ tt() {
 
 dev() {
   kitten @ set-tab-title "$(basename $PWD)"
-  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v claude) 
+  kitten @ launch --type=window --cwd="$PWD" --hold
   kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit) 
   nvim
 }
