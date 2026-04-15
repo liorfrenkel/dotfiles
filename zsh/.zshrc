@@ -28,14 +28,14 @@ tt() {
 dev() {
   kitten @ set-tab-title "$(basename $PWD)"
   kitten @ launch --type=window --cwd="$PWD" --hold
-  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit) 
+  kitten @ launch --type=window --cwd="$PWD" --hold zsh -i -c "exec lazygit" 
   nvim
 }
 
 devc() {
   kitten @ set-tab-title "$(basename $PWD)"
   kitten @ launch --type=window --cwd="$PWD" --hold zsh -i -c "exec claude"
-  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit)
+  kitten @ launch --type=window --cwd="$PWD" --hold zsh -i -c "exec lazygit"
   nvim
 }
 
@@ -43,7 +43,7 @@ wdevc() {
   wt switch --create "$1"
   kitten @ set-tab-title "$(basename $PWD)"
   kitten @ launch --type=window --cwd="$PWD" --hold zsh -i -c "exec claude"
-  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit)
+  kitten @ launch --type=window --cwd="$PWD" --hold zsh -i -c "exec lazygit"
   nvim
 }
 
