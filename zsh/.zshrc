@@ -1,3 +1,6 @@
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -31,16 +34,16 @@ dev() {
 
 devc() {
   kitten @ set-tab-title "$(basename $PWD)"
-  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v claude) 
-  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit) 
+  kitten @ launch --type=window --cwd="$PWD" --hold zsh -i -c "exec claude"
+  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit)
   nvim
 }
 
 wdevc() {
   wt switch --create "$1"
   kitten @ set-tab-title "$(basename $PWD)"
-  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v claude) 
-  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit) 
+  kitten @ launch --type=window --cwd="$PWD" --hold zsh -i -c "exec claude"
+  kitten @ launch --type=window --cwd="$PWD" --hold $(command -v lazygit)
   nvim
 }
 
