@@ -8,4 +8,4 @@ then
   export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 fi
 
-# source "$ZDOTDIR/.zshenv"
+source "$ZDOTDIR/.zshenv"
