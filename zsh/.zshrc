@@ -13,12 +13,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export PATH="$HOME/.local/bin:$PATH"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Aliases
 alias vim="nvim"
 alias v="nvim"
 alias nvimk="NVIM_APPNAME="nvim-kickstart" nvim"
 alias lg="lazygit"
+alias pib='AWS_PROFILE=claude-code pi'
 
 # Kitty helpers
 tt() {
