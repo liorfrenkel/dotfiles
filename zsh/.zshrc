@@ -18,7 +18,6 @@ alias vim="nvim"
 alias v="nvim"
 alias nvimk="NVIM_APPNAME="nvim-kickstart" nvim"
 alias lg="lazygit"
-alias pib='AWS_PROFILE=claude-code pi'
 
 # Kitty helpers
 tt() {
