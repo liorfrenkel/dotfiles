@@ -53,3 +53,8 @@ eval "$(atuin init zsh)"
 . "$HOME/.local/bin/env"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# Machine-local overrides — not committed to git
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  source "$HOME/.zshrc.local"
+fi
