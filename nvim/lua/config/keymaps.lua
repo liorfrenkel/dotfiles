@@ -78,3 +78,10 @@ end
 
 vim.keymap.set("n", "<leader>cto", ":lua ToggleTestOnly()<CR>", { desc = "toggle .only in test" })
 vim.keymap.set("n", "<leader>ctb", ":lua ToggleBoolean()<CR>", { desc = "toggle next boolean" })
+
+-- Copy the full path of the current buffer to the system clipboard
+vim.keymap.set('n', '<leader>cp', function()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path, vim.log.levels.INFO)
+end, { desc = 'Copy full file path' })
