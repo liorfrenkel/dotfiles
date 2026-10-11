@@ -1,0 +1,17 @@
+onboarding = false
+
+[ui.toast]
+delivery = "off"
+
+[ui]
+status_indicators = "symbols"
+
+[keys]
+prefix = "ctrl+b"
+clear_pane = "prefix+ctrl+k"
+previous_workspace = ["prefix+,", "ctrl+alt+k"]
+next_workspace = ["prefix+.", "ctrl+alt+j"]
+previous_agent = ["prefix+;", "ctrl+alt+p"]
+next_agent = ["prefix+'", "ctrl+alt+n"]
+cycle_pane_next = ["prefix+tab", "ctrl+alt+l"]
+cycle_pane_previous = ["prefix+shift+tab", "ctrl+alt+h"]
