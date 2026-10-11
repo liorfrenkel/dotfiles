@@ -15,3 +15,17 @@ previous_agent = ["prefix+;", "ctrl+alt+p"]
 next_agent = ["prefix+'", "ctrl+alt+n"]
 cycle_pane_next = ["prefix+tab", "ctrl+alt+l"]
 cycle_pane_previous = ["prefix+shift+tab", "ctrl+alt+h"]
+
+[[keys.command]]
+key = "prefix+alt+g"
+type = "popup"
+command = "lazygit"
+description = "lazygit"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "prefix+alt+e"
+type = "pane"
+command = "nvim"
+description = "neovim"
