@@ -29,3 +29,15 @@ key = "prefix+alt+e"
 type = "pane"
 command = "nvim"
 description = "neovim"
+
+[[keys.command]]
+key = "prefix+alt+w"
+type = "pane"
+command = "wt switch -x nvim -- -c 'DiffviewOpen main...HEAD'"
+description = "wt switch + diffview vs main"
+
+[[keys.command]]
+key = "prefix+space"
+type = "shell"
+command = "~/.config/herdr/auto-split.sh"
+description = "auto split"
