@@ -3,6 +3,7 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
+  cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewFileHistory', 'DiffviewToggleFiles', 'DiffviewFocusFiles', 'DiffviewRefresh' },
   keys = {
     { '<leader>gdo', '<cmd>DiffviewOpen<cr>', desc = 'Open Diffview' },
     { '<leader>gdm', '<cmd>DiffviewOpen main...HEAD<cr>', desc = 'Open Diffview vs main' },
